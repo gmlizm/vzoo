@@ -1,0 +1,9 @@
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-hystrix"
+    compile "org.springframework.cloud:spring-cloud-starter-hystrix-dashboard"
+}
+
+bootRepackage {
+    enabled=true
+    mainClass = 'com.aboo.vzoo.hystrix.Application'
+}

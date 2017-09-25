@@ -1,0 +1,34 @@
+/* ********************sysName******************** */
+def sysName=rootProject.name='vzoo'
+
+/* ========================================================== */
+/* ====================== projects ======================= */
+/* ========================================================== */
+
+/* ********************cfgcenter******************** */
+include "$sysName-cfgcenter"
+project(":$sysName-cfgcenter").projectDir=new File(settingsDir,'app/cfgcenter')
+
+/* ********************authcenter******************** */
+include "$sysName-authcenter"
+project(":$sysName-authcenter").projectDir=new File(settingsDir,'app/authcenter')
+
+/* ********************regcenter******************** */
+include "$sysName-regcenter"
+project(":$sysName-regcenter").projectDir=new File(settingsDir,'app/regcenter')
+
+/* ********************hystrix******************** */
+include "$sysName-hystrix"
+project(":$sysName-hystrix").projectDir=new File(settingsDir,'app/hystrix')
+
+/* ********************zuulcenter******************** */
+include "$sysName-zuulcenter"
+project(":$sysName-zuulcenter").projectDir=new File(settingsDir,'app/zuulcenter')
+
+/* ********************testcenter******************** */
+include "$sysName-testcenter"
+project(":$sysName-testcenter").projectDir=new File(settingsDir,'app/testcenter')
+
+/* ********************zmonitor******************** */
+include "$sysName-zmonitor"
+project(":$sysName-zmonitor").projectDir=new File(settingsDir,'app/zmonitor')

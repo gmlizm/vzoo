@@ -1,0 +1,21 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: regcenter
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
+      label: master
+      
+eureka:
+  instance:
+    hostname: localhost
+#    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

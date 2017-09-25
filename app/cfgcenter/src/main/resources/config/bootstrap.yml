@@ -1,0 +1,23 @@
+server:
+  port: 8888
+  
+spring:
+  application:
+    name: cfgcenter
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ccovee/config-repo
+#          searchPaths: '${spring.application.name}'
+          
+eureka:
+  instance:
+    hostname: localhost
+    port: 9999
+    instance-id: http://localhost:${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/

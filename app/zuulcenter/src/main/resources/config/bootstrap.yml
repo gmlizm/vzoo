@@ -1,0 +1,41 @@
+server:
+  port: 6666
+  
+spring:
+  application:
+    name: zuulcenter
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 9999
+    instance-id: http://localhost:${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+zuul:
+  routes:
+    uaa:
+      path: http://localhost:8088/**
+      sensitiveHeaders:
+      serviceId: vnet
+    order:
+      path: http://localhost:8081/**
+      sensitiveHeaders:
+      serviceId: vapp
+  add-proxy-headers: true
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8088/oauth/token
+      userAuthorizationUri: http://localhost:8088/oauth/authorize
+      clientId: testclient
+      clientSecret: testclient
+    resource:
+      userInfoUri: http://localhost:8088/user
+      preferTokenInfo: false
+

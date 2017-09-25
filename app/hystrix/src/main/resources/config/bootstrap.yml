@@ -1,0 +1,27 @@
+server:
+  port: 7979
+  
+spring:
+  application:
+    name: hystrix
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ccovee/config-repo
+#          searchPaths: '${spring.application.name}'
+          
+eureka:
+  instance:
+    hostname: localhost
+    port: 9999
+    instance-id: http://localhost:${server.port}
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+      
+feign:
+   hystrix:
+     enabled: true

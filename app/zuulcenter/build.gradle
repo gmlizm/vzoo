@@ -1,0 +1,12 @@
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-security"
+    compile "org.springframework.cloud:spring-cloud-starter-oauth2"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile "org.springframework.cloud:spring-cloud-starter-zuul"
+    
+}
+
+bootRepackage {
+    enabled=true
+    mainClass = 'com.aboo.vzoo.zuulcenter.Application'
+}

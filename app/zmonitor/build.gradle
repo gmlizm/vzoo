@@ -1,0 +1,11 @@
+dependencies {
+    compile "de.codecentric:spring-boot-admin-server:1.5.0"
+    compile "de.codecentric:spring-boot-admin-server-ui:1.5.0"
+    compile "de.codecentric:spring-boot-admin-starter-client:1.5.0"
+    
+}
+
+bootRepackage {
+    enabled=true
+    mainClass = 'com.aboo.vzoo.zmonitor.Application'
+}
