@@ -1,5 +1,5 @@
-apply plugin: "eclipse"
-eclipse {
+apply plugin: "idea"
+idea {
   //sourceSets*.java.srcDirs*.each {if(!it.exists()){it.mkdirs()}}
   //sourceSets*.resources.srcDirs*.each {if(!it.exists()){it.mkdirs()}}
   //只判断main下面的资源文件夹
@@ -11,7 +11,7 @@ eclipse {
     downloadJavadoc = false
   }
 }
-cleanEclipse{
+cleanIdea{
   dependsOn 'delSettings'
   task delSettings(type: Delete){delete '.settings'}
 }
