@@ -70,7 +70,7 @@ subprojects {
   clean {
     dependsOn 'cleanTarget'
     task cleanTarget(type: Delete) {
-      delete "${rootDir}/target/${project.name}"
+      delete "${rootDir}/target/${project.name}", "${rootDir}/.settings", "${rootDir}/.project"
       followSymlinks = true
     }
   }
