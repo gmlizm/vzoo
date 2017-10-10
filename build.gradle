@@ -61,9 +61,17 @@ subprojects {
   assemble {
     dependsOn 'copyApp'
     task copyApp(type: Copy) {
-            dependsOn 'jar'
-            from libsDir,"Dockerfile"
-            into "${rootDir}/target/${project.name}"
+      dependsOn 'jar'
+      from libsDir,"Dockerfile"
+      into "${rootDir}/target/${project.name}"
+    }
+  }
+  
+  clean {
+    dependsOn 'cleanTarget'
+    task cleanTarget(type: Delete) {
+      delete "${rootDir}/target/${project.name}"
+      followSymlinks = true
     }
   }
   
